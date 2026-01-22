@@ -7,7 +7,25 @@ import (
 
 	"github.com/iandaly/migrator/app"
 	"github.com/iandaly/migrator/config"
+	"github.com/iandaly/migrator/help"
 )
+
+func header() {
+	header := `
+ ██████   ██████  ███                                █████                      
+░░██████ ██████  ░░░                                ░░███                       
+ ░███░█████░███  ████   ███████ ████████   ██████   ███████    ██████  ████████ 
+ ░███░░███ ░███ ░░███  ███░░███░░███░░███ ░░░░░███ ░░░███░    ███░░███░░███░░███
+ ░███ ░░░  ░███  ░███ ░███ ░███ ░███ ░░░   ███████   ░███    ░███ ░███ ░███ ░░░ 
+ ░███      ░███  ░███ ░███ ░███ ░███      ███░░███   ░███ ███░███ ░███ ░███     
+ █████     █████ █████░░███████ █████    ░░████████  ░░█████ ░░██████  █████    
+░░░░░     ░░░░░ ░░░░░  ░░░░░███░░░░░      ░░░░░░░░    ░░░░░   ░░░░░░  ░░░░░     
+                       ███ ░███                                                 
+                      ░░██████                                                  
+                       ░░░░░░`
+
+	fmt.Println(header)
+}
 
 func main() {
 
@@ -16,25 +34,32 @@ func main() {
 		return
 	}
 
+	header()
+
 	first := os.Args[1]
 
-	// if we are initializing a project
-	if first == "init" {
-		exists, err := config.Exists()
-		if err != nil {
-			panic(err)
-		}
+	// if we are initializing a project or 
+	// just want to display the help menu
+	switch first {
+		case "init":
+			exists, err := config.Exists()
+			if err != nil {
+				panic(err)
+			}
 
-		if exists {
-			panic(errors.New("Config exists"))
-		}
+			if exists {
+				panic(errors.New("Config exists"))
+			}
 
-		if err := config.Create(); err != nil {
-			panic(err)
-		}
+			if err := config.Create(); err != nil {
+				panic(err)
+			}
 
-		fmt.Println("Initialize complete")
-		return
+			fmt.Println("Initialize complete")
+			return
+		case "help":
+				help.DisplayHelpMenu()
+				return
 	}
 
 	// since we are not initializing the project
