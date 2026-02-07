@@ -1,15 +1,3 @@
- ██████   ██████  ███                                █████                      
-░░██████ ██████  ░░░                                ░░███                       
- ░███░█████░███  ████   ███████ ████████   ██████   ███████    ██████  ████████ 
- ░███░░███ ░███ ░░███  ███░░███░░███░░███ ░░░░░███ ░░░███░    ███░░███░░███░░███
- ░███ ░░░  ░███  ░███ ░███ ░███ ░███ ░░░   ███████   ░███    ░███ ░███ ░███ ░░░ 
- ░███      ░███  ░███ ░███ ░███ ░███      ███░░███   ░███ ███░███ ░███ ░███     
- █████     █████ █████░░███████ █████    ░░████████  ░░█████ ░░██████  █████    
-░░░░░     ░░░░░ ░░░░░  ░░░░░███░░░░░      ░░░░░░░░    ░░░░░   ░░░░░░  ░░░░░     
-                       ███ ░███                                                 
-                      ░░██████                                                  
-                       ░░░░░░`
-
 A simple database migration tool written in Go for managing and applying database schema changes in a controlled, versioned manner. It supports running migrations forward and backward to evolve database schemas safely.
 
 ## Installation
